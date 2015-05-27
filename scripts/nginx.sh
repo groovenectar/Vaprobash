@@ -55,6 +55,10 @@ sed -i "s/# server_names_hash_bucket_size.*/server_names_hash_bucket_size 64;/" 
 # Add vagrant user to www-data group
 usermod -a -G www-data vagrant
 
+sudo service nginx restart
+
+exit
+
 # Nginx enabling and disabling virtual hosts
 curl --silent -L $github_url/helpers/ngxen.sh > ngxen
 curl --silent -L $github_url/helpers/ngxdis.sh > ngxdis
