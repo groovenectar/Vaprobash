@@ -34,20 +34,12 @@ else
     github_url="$4"
 fi
 
-if [[ ! -f $public_folder/../index.html ]]; then
+if [[ ! -f /usr/share/nginx/html/index.html ]]; then
     DELETE_INDEX=true
 fi
 
-if [[ ! -f $public_folder/index.html ]]; then
-    DELETE_INDEX2=true
-fi
-
-if [[ ! -f $public_folder/../50x.html ]]; then
+if [[ ! -f /usr/share/nginx/html/50x.html ]]; then
     DELETE_50X=true
-fi
-
-if [[ ! -f $public_folder/50x.html ]]; then
-    DELETE_50X2=true
 fi
 
 # Add repo for latest stable nginx
@@ -94,19 +86,11 @@ fi
 sudo service nginx restart
 
 if [[ "${DELETE_INDEX}" = true ]]; then
-    rm -f $public_folder/../index.html
+    rm -f /usr/share/nginx/html/index.html
 fi
 
 if [[ "${DELETE_50X}" = true ]]; then
-    rm -f $public_folder/../50x.html
-fi
-
-if [[ "${DELETE_INDEX2}" = true ]]; then
-    rm -f $public_folder/index.html
-fi
-
-if [[ "${DELETE_50X2}" = true ]]; then
-    rm -f $public_folder/50x.html
+    rm -f /usr/share/nginx/html/50x.html
 fi
 
 # Create blank index to avoid Forbidden error
