@@ -245,6 +245,9 @@ Vagrant.configure("2") do |config|
   # Install git-ftp
   # config.vm.provision "shell", path: "#{github_url}/scripts/git-ftp.sh", privileged: false
 
+	# Configure Magento - Requires Mysql and Composer
+	# config.vm.provision "shell", path: "#{github_url}/scripts/magento.sh", args: [server_ip, public_folder, hostname, github_url]
+
   ####
   # Local Scripts
   # Any local scripts you may want to run post-provisioning.
