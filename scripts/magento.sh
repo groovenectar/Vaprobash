@@ -95,6 +95,8 @@ server {
 		fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
 		fastcgi_param  MAGE_RUN_CODE default; ## Store code is defined in administration > Configuration > Manage Stores
 		fastcgi_param  MAGE_RUN_TYPE store;
+		fastcgi_buffers 16 16k; 
+		fastcgi_buffer_size 32k;
 		include fastcgi_params;
 	}
 }
