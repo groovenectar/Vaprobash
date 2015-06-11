@@ -91,7 +91,7 @@ server {
 		fastcgi_split_path_info ^(.+\.php)(/.+)$;
 		# With php5-fpm:
 		expires off;
-		fastcgi_pass unix:/var/run/php5-fpm.sock;
+		fastcgi_pass 127.0.0.1:9000;
 		fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
 		fastcgi_param  MAGE_RUN_CODE default; ## Store code is defined in administration > Configuration > Manage Stores
 		fastcgi_param  MAGE_RUN_TYPE store;
