@@ -34,11 +34,11 @@ else
     github_url="$4"
 fi
 
-if [[ ! -f /usr/share/nginx/html/index.html ]]; then
+if [[ ! -f $public_folder/index.html ]]; then
     DELETE_INDEX=true
 fi
 
-if [[ ! -f /usr/share/nginx/html/50x.html ]]; then
+if [[ ! -f $public_folder/50x.html ]]; then
     DELETE_50X=true
 fi
 
@@ -86,11 +86,11 @@ fi
 sudo service nginx restart
 
 if [[ "${DELETE_INDEX}" = true ]]; then
-    rm -f /usr/share/nginx/html/index.html
+    rm -f $public_folder/index.html
 fi
 
 if [[ "${DELETE_50X}" = true ]]; then
-    rm -f /usr/share/nginx/html/50x.html
+    rm -f $public_folder/50x.html
 fi
 
 # Create blank index to avoid Forbidden error
