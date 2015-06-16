@@ -33,6 +33,17 @@ HHVM_IS_INSTALLED=$?
 #	composer create-project --stability="dev" --keep-vcs --prefer-dist magetest/magento /vagrant/magento
 # fi
 
+# PHP Config
+sudo sed -i "s/max_execution_time = .*/max_execution_time = 180/" /etc/php5/fpm/php.ini
+sudo sed -i "s/memory_limit = .*/memory_limit = 256M/" /etc/php5/fpm/php.ini
+sudo sed -i "s/upload_max_filesize = .*/upload_max_filesize = 20M/" /etc/php5/fpm/php.ini
+sudo sed -i "s/post_max_size = .*/post_max_size = 20M/" /etc/php5/fpm/php.ini
+
+sudo sed -i "s/max_execution_time = .*/max_execution_time = 180/" /etc/php5/cli/php.ini
+sudo sed -i "s/memory_limit = .*/memory_limit = 256M/" /etc/php5/cli/php.ini
+
+sudo service php5-fpm restart
+
 # Set new document root on Apache or Nginx
 nginx -v > /dev/null 2>&1
 NGINX_IS_INSTALLED=$?
