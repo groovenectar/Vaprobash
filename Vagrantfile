@@ -100,6 +100,9 @@ Vagrant.configure("2") do |config|
 	config.vm.define "Vaprobash" do |vapro|
 	end
 
+	# Resolve "stdin: is not a tty" errors
+	config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
+
 	if Vagrant.has_plugin?("vagrant-hostmanager")
 	    config.hostmanager.enabled = true
 	    config.hostmanager.manage_host = true
