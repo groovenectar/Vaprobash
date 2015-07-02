@@ -64,9 +64,9 @@ sed -i "s/# server_names_hash_bucket_size.*/server_names_hash_bucket_size 64;/" 
 usermod -a -G www-data vagrant
 
 # Nginx enabling and disabling virtual hosts
-curl --silent -L $github_url/helpers/ngxen.sh > ngxen
-curl --silent -L $github_url/helpers/ngxdis.sh > ngxdis
-curl --silent -L $github_url/helpers/ngxcb.sh > ngxcb
+curl --silent -L $github_url/helpers/nginx/ngxen.sh > ngxen
+curl --silent -L $github_url/helpers/nginx/ngxdis.sh > ngxdis
+curl --silent -L $github_url/helpers/nginx/ngxcb.sh > ngxcb
 sudo chmod guo+x ngxen ngxdis ngxcb
 sudo mv ngxen ngxdis ngxcb /usr/local/bin
 
