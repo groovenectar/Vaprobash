@@ -251,7 +251,7 @@ Vagrant.configure("2") do |config|
 	# config.vm.provision "shell", path: "#{github_url}/scripts/git-ftp.sh", privileged: false
 
 	# Install Modman
-	config.vm.provision "shell", path: "#{github_url}/scripts/modman.sh"
+	config.vm.provision "shell", path: "#{github_url}/scripts/modman.sh", privileged: false
 
 	# Configure Magento - Requires Mysql and Composer
 	# config.vm.provision "shell", path: "#{github_url}/helpers/magento.sh", args: [server_ip, public_folder, hostname, github_url]
