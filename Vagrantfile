@@ -2,8 +2,8 @@
 # vi: set ft=ruby :
 
 hostname = "vagrant.dev"
-synced_folder = "/usr/share/nginx/html"
-public_folder = "/usr/share/nginx/html/public"
+synced_folder = "/var/www/#{hostname}"
+public_folder = "/var/www/#{hostname}/public"
 
 # Set a local private network IP address.
 # See http://en.wikipedia.org/wiki/Private_network for explanation
@@ -11,7 +11,10 @@ public_folder = "/usr/share/nginx/html/public"
 #   10.0.0.1    - 10.255.255.254
 #   172.16.0.1  - 172.31.255.254
 #   192.168.0.1 - 192.168.255.254
-server_ip             = "192.168.#{Random.new.rand(0..255)}.#{Random.new.rand(1..254)}"
+# Static IP
+server_ip             = "172.31.15.15"
+# Random IP using 172 block because it's rarely used elsewhere
+server_ip             = "172.#{Random.new.rand(16..31)}.#{Random.new.rand(0..255)}.#{Random.new.rand(1..254)}"
 server_cpus           = "1"   # Cores
 server_memory         = "384" # MB
 server_swap           = "768" # Options: false | int (MB) - Guideline: Between one or two times the server_memory
@@ -20,7 +23,7 @@ server_swap           = "768" # Options: false | int (MB) - Guideline: Between o
 # EST        for Eastern Standard Time
 # US/Central for American Central
 # US/Eastern for American Eastern
-server_timezone  = "EDT"
+server_timezone  = "US/Eastern"
 
 # Database Configuration
 mysql_root_password   = "root"   # We'll assume user "root"
@@ -28,7 +31,7 @@ mysql_version         = "5.5"    # Options: 5.5 | 5.6
 mysql_enable_remote   = "false"  # remote access enabled when true
 
 # Languages and Packages
-php_timezone          = "UTC"    # http://php.net/manual/en/timezones.php
+php_timezone          = "America/New_York"    # http://php.net/manual/en/timezones.php
 php_version           = "5.5"    # Options: 5.5 | 5.6
 ruby_version          = "latest" # Choose what ruby version should be installed (will also be the default version)
 ruby_gems             = [        # List any Ruby Gems that you want to install
@@ -88,6 +91,9 @@ github_url      = "https://raw.githubusercontent.com/#{github_username}/#{github
 github_pat          = ""
 
 Vagrant.configure("2") do |config|
+	# Set server to Debian 8
+	# config.vm.box = "debian/jessie64"
+
 	# Set server to Ubuntu 14.04
 	config.vm.box = "ubuntu/trusty64"
 
