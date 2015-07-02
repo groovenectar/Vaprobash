@@ -97,7 +97,7 @@ Vagrant.configure("2") do |config|
 	# Set server to Ubuntu 14.04
 	config.vm.box = "ubuntu/trusty64"
 
-	config.vm.define "Vaprobash" do |vapro|
+	config.vm.define "#{hostname}" do |vapro|
 	end
 
 	# Resolve "stdin: is not a tty" errors
