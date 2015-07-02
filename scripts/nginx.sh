@@ -34,14 +34,6 @@ else
     github_url="$4"
 fi
 
-if [[ ! -f $public_folder/index.html ]]; then
-    DELETE_INDEX=true
-fi
-
-if [[ ! -f $public_folder/50x.html ]]; then
-    DELETE_50X=true
-fi
-
 # Add repo for latest stable nginx
 sudo add-apt-repository -y ppa:nginx/stable
 
@@ -84,16 +76,3 @@ if [[ $HHVM_IS_INSTALLED -ne 0 && $PHP_IS_INSTALLED -eq 0 ]]; then
 fi
 
 sudo service nginx restart
-
-if [[ "${DELETE_INDEX}" = true ]]; then
-    rm -f $public_folder/index.html
-fi
-
-if [[ "${DELETE_50X}" = true ]]; then
-    rm -f $public_folder/50x.html
-fi
-
-# Create blank index to avoid Forbidden error
-if [[ ! -f $public_folder/index.html ]] && [[ ! -f $public_folder/index.php ]]; then
-    touch $public_folder/index.html
-fi
