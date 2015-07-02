@@ -51,7 +51,7 @@ sudo usermod -a -G www-data vagrant
 sudo a2dismod mpm_prefork
 sudo a2dismod php5 
 sudo a2enmod mpm_worker rewrite actions ssl
-curl --silent -L $github_url/helpers/vhost.sh > vhost
+curl --silent -L $github_url/helpers/apache/vhost.sh > vhost
 sudo chmod guo+x vhost
 sudo mv vhost /usr/local/bin
 
