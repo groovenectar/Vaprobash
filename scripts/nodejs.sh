@@ -42,5 +42,5 @@ fi
 if [[ ! -z $NODE_PACKAGES ]]; then
     echo ">>> Start installing Global Node Packages"
 
-    npm install -g ${NODE_PACKAGES[@]}
+    sudo npm install -g ${NODE_PACKAGES[@]}
 fi
