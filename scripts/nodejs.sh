@@ -26,49 +26,16 @@ else
     GITHUB_URL="https://raw.githubusercontent.com/fideloper/Vaprobash/master"
 fi
 
-# True, if Node is not installed
-if [[ $NODE_IS_INSTALLED -ne 0 ]]; then
+echo ">>> Start installing NPM and Node"
 
-    echo ">>> Installing Node Version Manager"
+sudo apt-get install -qq npm node
 
-    # Install NVM
-    curl --silent -L $GITHUB_URL/helpers/nvm_install.sh | sh
+if [[ -f "/home/vagrant/.profile" ]]; then
+    # Add new NPM Global Packages location to PATH (.profile)
+    printf "\n# Add new NPM global packages location to PATH\n%s" 'export PATH=$PATH:~/npm/bin' >> /home/vagrant/.profile
 
-    # Re-source user profiles
-    # if they exist
-    if [[ -f "/home/vagrant/.profile" ]]; then
-        . /home/vagrant/.profile
-    fi
-
-    echo ">>> Installing Node.js version $NODEJS_VERSION"
-    echo "    This will also be set as the default node version"
-
-    # If set to latest, get the current node version from the home page
-    if [[ $NODEJS_VERSION -eq "latest" ]]; then
-        NODEJS_VERSION=`curl -L 'nodejs.org' | grep 'Current Version' | awk '{ print $4 }' | awk -F\< '{ print $1 }'`
-    fi
-
-    # Install Node
-    nvm install $NODEJS_VERSION
-
-    # Set a default node version and start using it
-    nvm alias default $NODEJS_VERSION
-
-    nvm use default
-
-    echo ">>> Starting to config Node.js"
-
-    # Change where npm global packages are located
-    npm config set prefix /home/vagrant/npm
-
-    if [[ -f "/home/vagrant/.profile" ]]; then
-        # Add new NPM Global Packages location to PATH (.profile)
-        printf "\n# Add new NPM global packages location to PATH\n%s" 'export PATH=$PATH:~/npm/bin' >> /home/vagrant/.profile
-
-        # Add new NPM root to NODE_PATH (.profile)
-        printf "\n# Add the new NPM root to NODE_PATH\n%s" 'export NODE_PATH=$NODE_PATH:~/npm/lib/node_modules' >> /home/vagrant/.profile
-    fi
-
+    # Add new NPM root to NODE_PATH (.profile)
+    printf "\n# Add the new NPM root to NODE_PATH\n%s" 'export NODE_PATH=$NODE_PATH:~/npm/lib/node_modules' >> /home/vagrant/.profile
 fi
 
 # Install (optional) Global Node Packages
