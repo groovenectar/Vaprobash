@@ -14,7 +14,7 @@ public_folder = "/var/www/#{hostname}/public"
 # Static IP
 server_ip             = "172.31.15.15"
 # Random IP using 172 block because it's rarely used elsewhere
-server_ip             = "172.#{Random.new.rand(16..31)}.#{Random.new.rand(0..255)}.#{Random.new.rand(1..254)}"
+# server_ip             = "172.#{Random.new.rand(16..31)}.#{Random.new.rand(0..255)}.#{Random.new.rand(1..254)}"
 server_cpus           = "1"   # Cores
 server_memory         = "384" # MB
 server_swap           = "768" # Options: false | int (MB) - Guideline: Between one or two times the server_memory
