@@ -244,6 +244,9 @@ Vagrant.configure("2") do |config|
 	# Provision Composer
 	config.vm.provision "shell", path: "#{github_url}/scripts/composer.sh", privileged: false, args: composer_packages.join(" ")
 
+	# Install Mailhog
+	config.vm.provision "shell", path: "#{github_url}/scripts/mailhog.sh"
+	
 	# Install Screen
 	config.vm.provision "shell", path: "#{github_url}/scripts/screen.sh"
 
