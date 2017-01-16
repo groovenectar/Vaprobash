@@ -63,21 +63,8 @@ sphinxsearch_version  = "rel22" # rel20, rel21, rel22, beta, daily, stable
 
 if ARGV[0] == 'up'
 	print "Edit Vagrantfile to update hostname and IP"
-	print "\n\nProvisioning with hostname \"" + hostname + "\" and IP " + server_ip
-	print "\n\nContinue? [y/n]"
-
-	begin
-		system("stty raw -echo")
-		str = STDIN.getc
-	ensure
-		system("stty -raw echo")
-	end
-
-	print "\n"
-
-	if str != 'Y' && str != 'y'
-		exit
-	end
+	print "\n\nUsing hostname \"" + hostname + "\" and IP " + server_ip
+	print "\n\n"
 end
 
 # Config Github Settings
