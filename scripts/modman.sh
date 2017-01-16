@@ -19,4 +19,4 @@ $CMD
 
 sudo chmod +x $DEST
 
-echo "Done. Modman installed in $HOME/bin/modman"
+echo "Done. Modman installed in /usr/bin/modman"
