@@ -218,12 +218,15 @@ Vagrant.configure("2") do |config|
 	# config.vm.provision "shell", path: "#{github_url}/scripts/memcached.sh"
 
 	####
-	# Additional Languages
+	# Node, NPM, Bower
 	##########
 
 	# Install Nodejs
 	config.vm.provision "shell", path: "#{github_url}/scripts/nodejs.sh", privileged: false, args: nodejs_packages.unshift(nodejs_version, github_url)
 
+	# Install Bower
+	config.vm.provision "shell", path: "#{github_url}/scripts/bower.sh"
+	
 	####
 	# Frameworks and Tooling
 	##########
