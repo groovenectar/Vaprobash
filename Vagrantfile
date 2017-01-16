@@ -3,6 +3,7 @@
 
 hostname = "vagrant.dev"
 synced_folder = "/var/www/#{hostname}"
+# If the Vagrantfile is in the project root, remove "/public"
 public_folder = "/var/www/#{hostname}/public"
 
 # Set a local private network IP address.
