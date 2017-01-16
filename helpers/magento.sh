@@ -13,6 +13,8 @@ if [ $MYSQL_IS_INSTALLED -gt 0 ]; then
 	exit 1
 fi
 
+sudo php5enmod mcrypt
+
 # Test if Composer is installed
 composer --version > /dev/null 2>&1
 COMPOSER_IS_INSTALLED=$?
