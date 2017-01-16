@@ -29,6 +29,8 @@ fi
 echo ">>> Start installing NPM and Node"
 
 sudo apt-get install -qq npm node
+# :(
+sudo ln -s /usr/bin/nodejs /usr/bin/node
 
 if [[ -f "/home/vagrant/.profile" ]]; then
     # Add new NPM Global Packages location to PATH (.profile)
