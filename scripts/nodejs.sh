@@ -28,8 +28,13 @@ fi
 
 echo ">>> Start installing NPM and Node"
 
-sudo apt-get install -qq npm node
+cd ~
+curl -sL https://deb.nodesource.com/setup_6.x -o nodesource_setup.sh
+sudo bash nodesource_setup.sh
+sudo apt-get install -qq nodejs
+sudo apt-get install build-essential
 # :(
+sudo rm /usr/bin/node
 sudo ln -s /usr/bin/nodejs /usr/bin/node
 
 if [[ -f "/home/vagrant/.profile" ]]; then
