@@ -2,4 +2,4 @@
 
 echo ">>> Installing bower"
 
-npm install -g bower
+sudo npm install -g bower
