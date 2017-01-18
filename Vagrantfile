@@ -253,6 +253,9 @@ Vagrant.configure("2") do |config|
 	# Configure Magento - Requires Mysql and Composer
 	# config.vm.provision "shell", path: "#{github_url}/helpers/magento.sh", args: [server_ip, public_folder, hostname, github_url]
 
+	# Install Ngrok
+	config.vm.provision "shell", path: "#{github_url}/scripts/ngrok.sh"
+	
 	####
 	# Local Scripts
 	# Any local scripts you may want to run post-provisioning.
