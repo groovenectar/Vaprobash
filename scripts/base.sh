@@ -89,3 +89,7 @@ fi
 
 # Enable case sensitivity
 shopt -u nocasematch
+
+echo ">>> Installing dtrx"
+
+sudo apt-get install -qq dtrx
