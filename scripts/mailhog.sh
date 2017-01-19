@@ -8,7 +8,7 @@ echo ">>> Installing Mailhog"
 sudo wget --quiet -O /usr/local/mailhog https://github.com/mailhog/MailHog/releases/download/v0.2.1/MailHog_linux_amd64
 sudo chmod +x /usr/local/mailhog
 
-if [[ -n "$(type -t dpkg)"* ]]
+if [[ -n "$(type -t dpkg)" ]]
 then
 	output="$(dpkg -S "${init}")"
 
@@ -73,7 +73,7 @@ else
 	echo ">>> Error: Could not detect system type. You will need to manually add Mailhog to startup."
 fi
 
-if [[ -n "$(type -t sendmail)"* ]]
+if [[ -n "$(type -t sendmail)" ]]
 then
 	echo
 	echo ">>> Sendmail is installed -- Replacing sendmail with Mailhog and renaming sendmail binary to sendmail.backup"
