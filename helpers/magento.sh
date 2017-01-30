@@ -16,13 +16,13 @@ fi
 sudo php5enmod mcrypt
 
 # Test if Composer is installed
-composer --version > /dev/null 2>&1
-COMPOSER_IS_INSTALLED=$?
+# composer --version > /dev/null 2>&1
+# COMPOSER_IS_INSTALLED=$?
 
-if [ $COMPOSER_IS_INSTALLED -gt 0 ]; then
-    echo "ERROR: Magento install requires composer"
-    exit 1
-fi
+# if [ $COMPOSER_IS_INSTALLED -gt 0 ]; then
+#     echo "ERROR: Magento install requires composer"
+#     exit 1
+# fi
 
 # Test if HHVM is installed
 hhvm --version > /dev/null 2>&1
