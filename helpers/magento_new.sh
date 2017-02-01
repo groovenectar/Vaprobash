@@ -105,8 +105,8 @@ server {
 	}
 }
 EOF
-	# sudo ln -s /etc/nginx/sites-available/magento /etc/nginx/sites-enabled
-	sudo ngxen magento
+	sudo ln -s /etc/nginx/sites-available/magento /etc/nginx/sites-enabled
+	# sudo ngxen magento
 	sudo service nginx reload
 fi
 
